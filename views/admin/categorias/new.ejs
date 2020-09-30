@@ -1,0 +1,19 @@
+<%- include ('../../partials/header.ejs'); %>
+<body>
+    <%- include ('../../partials/navbar.ejs'); %>
+   <div class="container mt-4">
+    <h1>Categorias</h1><hr>
+    <div class="card">
+        <form action="/categoria/save" method="POST">
+            <div class="card-body" style="width: 500px;"> 
+            <label for="titulo">Titulo</label>
+            <input type="text" name="titulo" class="form-control" placeholder="Titulo da categoria">
+            <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
+            </div>
+            
+        </form>  
+    </div>
+   </div>
+    
+</body>
+<%- include ('../../partials/footer.ejs'); %>
