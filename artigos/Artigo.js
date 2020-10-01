@@ -19,7 +19,7 @@ const Artigo = connection.define('artigos', {
    
     
 });
-Categoria.hasMany(Artigo); // Tem muitos artigos
+Categoria.hasMany(Artigo); //Categoria Tem muitos artigos
 Artigo.belongsTo(Categoria); // Relacionamento  1 to 1.
 
 //Artigo.sync({force: true})

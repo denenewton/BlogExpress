@@ -2,13 +2,14 @@
 <body>
     <%- include ('../../partials/navbar.ejs'); %>
    <div class="container mt-4">
-    <h1>Nova Categoria</h1><hr>
+    <h1>Atualizar categoria</h1><hr>
     <div class="card">
-        <form action="/categoria/save" method="POST">
+        <form action="/categorias/update" method="POST">
             <div class="card-body" style="width: 500px;"> 
             <label for="titulo">Titulo</label>
-            <input type="text" name="titulo" class="form-control" placeholder="Titulo da categoria">
-            <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
+            <input type="text" name="titulo" value="<%= categorias.titulo%>" class="form-control" placeholder="Titulo da categoria">
+            <input type="hidden" name="id" value="<%= categorias.id %>">
+            <button type="submit" class="btn btn-primary mt-4">Editar</button>
             </div>
             
         </form>  

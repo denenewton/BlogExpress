@@ -13,11 +13,33 @@
             <tr><td><%= categoria.id%></td>
                 <td><%= categoria.titulo%></td>
                 <td><%= categoria.slug %></td>
-                <td></th></tr>
+                <td></th>
+                  <form action="/admin/categorias/editar/<%= categoria.id %>" method="GET"    style="display: inline;">
+                    <input type="hidden" name="id">
+                  <button style="margin-left: 10%; margin-right: 2% ;" class="btn btn-warning">Editar</button>
+                </form>
+                  <form action="/admin/categorias/deletar" method="post" style="display: inline;" onsubmit="EmpedirDelete(event, this)">
+                    <input type="hidden" name="id" value="<%= categoria.id %>">
+                    <button style="margin-right: 23% ;" class="btn btn-danger">Excluir</button></form>
+                </tr>
         <% }) %>
       </tbody>
     </table>
+    <a href="/admin/categorias/new" class="btn btn-primary">Criar Categoria</a>
     </div>
    </div>
+   <script>
+
+     function EmpedirDelete(event, form){
+       event.preventDefault()
+       console.log('o formulario nao foi enviado')
+       var resposta = confirm('Você quer deletar esta categoria?')
+       if(resposta){
+           form.submit()
+       }else{
+         console.log('nao quero deletar')
+       }
+     }
+   </script>
 </body>
 <%- include ('../../partials/footer.ejs'); %>
