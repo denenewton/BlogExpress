@@ -32,12 +32,9 @@
 
      function EmpedirDelete(event, form){
        event.preventDefault()
-       console.log('o formulario nao foi enviado')
-       var resposta = confirm('Você quer deletar esta categoria?')
+       var resposta = confirm('Você quer deletar mesmo esta categoria?')
        if(resposta){
            form.submit()
-       }else{
-         console.log('nao quero deletar')
        }
      }
    </script>
