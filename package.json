@@ -19,6 +19,7 @@
     "nodemon": "^2.0.4",
     "sequelize": "^6.3.5",
     "slugify": "^1.4.5",
+    "tinymce": "^5.5.1",
     "yarm": "^0.4.0"
   }
 }
