@@ -7,6 +7,7 @@ const routerB = require('./categorias/categoriasRotas')
 const Artigo = require('./artigos/Artigo')
 const Categoria = require('./categorias/Categoria')
 
+
 //definindo o view engine da aplicacao.
 app.set('view engine', 'ejs')
 
@@ -25,8 +26,35 @@ connection.authenticate().then(()=>{
 })
 
 app.get('/', (req, res)=>{
-    res.render('index')
+    Artigo.findAll({
+        order: [['id','DESC']]
+    }).then(artigos =>{
+        Categoria.findAll().then( categorias =>{
+            res.render('index', {artigos: artigos, categorias: categorias})
+        })
+    })
+   
 })
+
+app.get('/:slug', (req, res)=>{
+    
+    var slug = req.params.slug
+    if(slug != undefined){
+
+        Artigo.findOne({
+            where: { slug: slug}
+        }).then(artigo =>{
+           Categoria.findAll().then( categorias =>{
+            res.render('artigos', {artigo: artigo, categorias: categorias})
+           })
+        }).catch(()=>{ 
+            res.redirect('/')
+        })
+    }
+
+})
+
+
 app.use('/', routerA)
 app.use('/', routerB)
 

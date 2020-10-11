@@ -16,11 +16,11 @@
                 <td></th>
                   <form action="/admin/categorias/editar/<%= categoria.id %>" method="GET"    style="display: inline;">
                     <input type="hidden" name="id">
-                  <button style="margin-left: 10%; margin-right: 2% ;" class="btn btn-warning">Editar</button>
+                  <button style="margin-left: 10%; margin-right: 2% ;" class="btn btn-warning btn-sm">Editar</button>
                 </form>
                   <form action="/admin/categorias/deletar" method="post" style="display: inline;" onsubmit="EmpedirDelete(event, this)">
                     <input type="hidden" name="id" value="<%= categoria.id %>">
-                    <button style="margin-right: 23% ;" class="btn btn-danger">Excluir</button></form>
+                    <button style="margin-right: 23% ;" class="btn btn-danger btn-sm">Deletar</button></form>
                 </tr>
         <% }) %>
       </tbody>
@@ -31,7 +31,7 @@
    <script>
 
      function EmpedirDelete(event, form){
-       event.preventDefault()
+       event.preventDefault() //impede o envio do pedido de delecao..
        var resposta = confirm('Você quer deletar mesmo esta categoria?')
        if(resposta){
            form.submit()

@@ -10,16 +10,17 @@
             </div>
         </div>
     </div>  
-    <div class="container w-75" ><!-- style=" background-color: #636363;" -->
-        
-        <% artigos.forEach( artigo =>{  %>
+    <div class="container w-75" >
         <div class="card my-3 ">
             <div class="card-body">
-               <h5><%= artigo.titulo %></h5>  
-               <a href="/<%= artigo.slug %>">Leia mais</a>
+                <h5 class="card-title"><%- artigo.titulo %></h5><hr>
+                <h6 class="card-text"><%- artigo.corpo %></h6>
+            </div>
+            <div class="card-body">
+                <p class="float-right"><%- artigo.createdAt %></p>
             </div>
         </div>
-        <% }) %>  
+     
     </div>
     
 </body>
