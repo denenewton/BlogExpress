@@ -6,21 +6,20 @@
             <div class="col-12">
                 <h1 class="display-4">Blogg Node.js com Express</h1>
             <hr>
-            <h2><%- artigo.titulo %> </h2>
+            <h2>Artigos por Categoria</h2>
             </div>
         </div>
     </div>  
-    <div class="container w-75" >
+    <div class="container w-75" ><!-- style=" background-color: #636363;" -->
+        
+        <% artigos.forEach( artigo =>{  %>
         <div class="card my-3 ">
             <div class="card-body">
-                <h5 class="card-title"><%- artigo.titulo %></h5><hr>
-                <h6 class="card-text"><%- artigo.corpo %></h6>
-            </div>
-            <div class="card-body">
-                <p class="float-right"><%- artigo.createdAt %></p>
+               <h5><%= artigo.titulo %></h5>  
+               <a href="/<%= artigo.slug %>">Leia mais</a>
             </div>
         </div>
-     
+        <% }) %>  
     </div>
     
 </body>

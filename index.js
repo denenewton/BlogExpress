@@ -54,6 +54,29 @@ app.get('/:slug', (req, res)=>{
 
 })
 
+app.get('/categoria/:slug', (req, res)=>{
+    var slug = req.params.slug
+
+    if( slug != undefined){
+       
+        Categoria.findOne({ where: {slug: slug}, include: [{ model: Artigo}]
+
+        }).then( categoria =>{
+             if(categoria != undefined){
+
+               Categoria.findAll().then( categorias =>{
+                res.render('artigos-categoria', { artigos: categoria.artigos, categorias: categorias})
+               })
+
+             }else{
+                 res.redirect('/')
+             }
+        })
+    }else{
+        res.redirect('/')
+    }
+})
+
 
 app.use('/', routerA)
 app.use('/', routerB)
