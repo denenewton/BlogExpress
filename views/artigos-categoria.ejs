@@ -1,12 +1,12 @@
 <%- include ('partials/header.ejs'); %>
 <body>
     <%- include ('partials/navbarhome.ejs'); %>
-    <div class="jumbotron">
-        <div class="row text-center my-1">
+    <div class="jumbotron my-0 mb-1" style="margin-bottom: 2px;">
+        <div class="row text-center my-1" style="height:100px;">
             <div class="col-12">
-                <h1 class="display-4">Blogg Node.js com Express</h1>
+                <h1  class="display-4" style="font-size: 37px;">Blogg Node.js com Express</h1>
             <hr>
-            <h2>Artigos por Categoria</h2>
+            <h2  class="display-4" style="font-size: 30px;">Artigos por Categoria</h2>
             </div>
         </div>
     </div>  
@@ -15,7 +15,7 @@
         <% artigos.forEach( artigo =>{  %>
         <div class="card my-3 ">
             <div class="card-body">
-               <h5><%= artigo.titulo %></h5>  
+               <h5  class="display-4" style="font-size: 21px;"><%= artigo.titulo %></h5>  
                <a href="/<%= artigo.slug %>">Leia mais</a>
             </div>
         </div>

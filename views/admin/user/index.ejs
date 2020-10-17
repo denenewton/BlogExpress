@@ -1,0 +1,48 @@
+<%- include ('../../partials/header.ejs'); %>
+<body>
+    <%- include ('../../partials/navbar.ejs'); %>
+    <div class="jumbotron my-0 mb-1" style="margin-bottom: 2px;">
+        <div class="row text-center my-0" style="height:100px;">
+            <div class="col-12">
+                <h2 class="display-4" style="font-size: 37px;">Lista de Usuário</h2>
+                <hr>
+                <a href="/admin/user/new" class="btn btn-primary mt-2">Novo Usuário</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container w-100 justify-content-center">
+        <!-- style=" background-color: #636363;" -->
+
+        <div class="row justify-content-center">
+
+            <table class="table-bordered w-75 mt-3">
+                    <thead>
+                        <tr>
+                        <th>
+                            <p class="my-2 ml-1">Id</p>
+                        </th>
+                        <th>
+                            <p class="my-2 ml-1">Usuário</p>
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach( user=> {%>
+                     <tr>
+                        <td>
+                            <p class="lead my-2 text-center"><%- user.id %></p>
+                        </td>
+                        <td>
+                            <p class="lead my-2 text-left ml-1"><%- user.email %></p>
+                        </td>
+                    </tr>
+                    <%})%>
+                    </tbody>
+                
+            </table>
+           
+        </div>
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs'); %>

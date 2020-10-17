@@ -1,0 +1,52 @@
+<%- include ('../../partials/header.ejs'); %>
+
+<body>
+    <%- include ('../../partials/navbar.ejs'); %>
+    <div class="jumbotron my-0 mb-1" style="margin-bottom: 2px;">
+        <div class="row text-center my-0" style="height:50px;">
+            <div class="col-12">
+                <h2 class="display-4" style="font-size: 37px;">Cadastro de Usuário</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container w-100">
+        <!-- style=" background-color: #636363;" -->
+        <div class="card mt-3 w-75 ml-auto mr-auto justify-content-center">
+            <div class=" card-body">
+                <form action="/users/create" method="post">
+                 <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="email@exemplo.com" required>
+                     </div>
+                     <div class="col-sm-6 col-md-6 ">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" class="form-control" required> 
+                     </div>
+                 </div>
+                 <div class="row justify-content-center">
+                    <div class="col-sm-6 col-md-6">
+                        <button class="btn btn-primary mt-4"style="float: left;">Cadastrar</button>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        
+                    </div>
+                 </div>
+                
+                   
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-12 mb-1" >
+                <a style="float: right;" href="/artigos/page/1">Lista de Artigos</a>
+            </div>
+            <hr>
+         </div> -->
+
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs'); %>

@@ -1,27 +1,29 @@
 <%- include ('partials/header.ejs'); %>
+
 <body>
     <%- include ('partials/navbarhome.ejs'); %>
-    <div class="jumbotron">
+    <div class="jumbotron" style="margin-bottom: 2px;">
         <div class="row text-center my-1">
             <div class="col-12">
-                <h1 class="display-4">Blogg Node.js com Express</h1>
-            <hr>
-            <h2><%- artigo.titulo %> </h2>
+                <h1 class="display-4" style="font-size: 37px;">Blogg Node.js com Express</h1>
+                <hr>
+                <h2 class="display-4" style="font-size: 30px;"><%- artigo.titulo %> </h2>
             </div>
         </div>
-    </div>  
-    <div class="container w-75" >
+    </div>
+    <div class="container w-75">
         <div class="card my-3 ">
             <div class="card-body">
-                <h5 class="card-title"><%- artigo.titulo %></h5><hr>
-                <h6 class="card-text"><%- artigo.corpo %></h6>
+        <h5 class="display-4 card-title" style="font-size: 21px;"><%- artigo.titulo %></h5>
+                <hr>
+                <h6 class="card-text" style="font-size: 15px;"><%- artigo.corpo %></h6>
             </div>
             <div class="card-body">
                 <p class="float-right"><%- artigo.createdAt %></p>
             </div>
         </div>
-     
+
     </div>
-    
+
 </body>
 <%- include ('partials/footer.ejs'); %>

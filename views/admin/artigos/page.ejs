@@ -1,0 +1,43 @@
+<%- include ('../../partials/header.ejs'); %>
+<body>
+    <%- include ('../../partials/navbarhome.ejs'); %>
+    <div class="jumbotron" style="margin-bottom: 2px;">
+
+        <div class="row text-center mb-0" style="margin-bottom: -1px; height: 40px; vertical-align: auto;">
+            <div class="col-12">
+                <h4 class="display-4" style="font-size: 33px;">Lista de Artigos</h4>
+            </div>
+        </div>
+    </div>  
+    <div class="container w-75" ><!-- style=" background-color: #636363;" -->
+        
+        <% result.artigos.rows.forEach( artigo =>{  %>
+        <div class="card my-3 ">
+            <div class="card-body">
+               <h5 class="display-4" style="font-size: 21px;"><%= artigo.titulo %></h5>  
+               <a href="/<%= artigo.slug %>">Leia mais</a>
+            </div>
+        </div>
+        <% }) %>  
+
+        <div class="row">
+            <hr>
+            <div class="col-12 mb-1" >
+                
+               <% if(result.next == true){ %>
+                <a style="float: right;" href="/artigos/page/<%= result.page+1 %>">próximo</a>
+                <%} %>
+                <% if(result.page == 1){ %>
+                    
+                    <a style="float: left;" href="/">anterior</a>
+                <%}else{  %>
+            
+                <a style="float: left;" href="/artigos/page/<%= result.page-1 %>">anterior</a>
+                <% } %>
+                
+            </div>
+            <hr>
+         </div>
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs'); %>

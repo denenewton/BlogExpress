@@ -3,7 +3,12 @@
 <body>
     <%- include ('../../partials/navbar.ejs'); %>
     <div class="container mt-4">
-        <h1>Artigos</h1>
+        <div class="row">
+            <div class="col-12" >
+                <h1 style="float: left;">Artigos</h1><a href="/admin/artigos/new" class="btn btn-primary mt-2"
+                    style="float: right;">Novo Artigo</a>
+            </div>
+        </div>
         <hr>
         <table class="table table-bordered">
             <thead>
@@ -17,35 +22,39 @@
             </thead>
             <tbody>
                 <% artigos.forEach( artigo => {  %>
-                    <tr><td><%= artigo.id%></td>
-                        <td><%= artigo.titulo%></td>
-                        <td><%= artigo.slug %></td>
-                        <td><%= artigo.categoria.titulo %></td>
-                        <td> 
-                           <form action="/artigos/delete/<%= artigo.id%>" method="get" onsubmit="deleteArtigo(event,this)">
-                            <button class="btn btn-outline-danger btn-sm">Delete</button>
-                           </form>
-                        </td> 
-                        <% }) %>
+                <tr>
+                    <td><%= artigo.id%></td>
+                    <td><%= artigo.titulo%></td>
+                    <td><%= artigo.slug %></td>
+                    <td><%= artigo.categoria.titulo %></td>
+                    <td>
+                        <div style="display:inline-flex;">
+                            <form action="/artigos/delete/<%= artigo.id%>" method="get"
+                                onsubmit="deleteArtigo(event,this)">
+                                <button class="btn btn-outline-danger btn-sm mr-1 ml-1">Delete</button>
+                            </form>
+                            <a href="/admin/artigos/editar/<%= artigo.id%>"
+                                class="ml-1 btn btn-outline-success btn-sm">Editar</a>
+                        </div>
+                    </td>
+                    <% }) %>
             </tbody>
-        </table> 
-
-        <a href="/admin/artigos/new" class="btn btn-primary">Novo Artigo</a>
+        </table>
 
     </div>
 
-<script>
- function deleteArtigo(ev,form){
-   ev.preventDefault()
-   var resposta = confirm('Quer mesmo deletar esse artigo?')
-   if(resposta){
-       form.submit()
-   }
+    <script>
+        function deleteArtigo(ev, form) {
+            ev.preventDefault()
+            var resposta = confirm('Quer mesmo deletar esse artigo?')
+            if (resposta) {
+                form.submit()
+            }
 
 
- }
+        }
 
-</script>
+    </script>
 
 </body>
 <%- include ('../../partials/footer.ejs'); %>
